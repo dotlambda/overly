@@ -1,5 +1,5 @@
 from enum import Enum
-from select import POLLIN, POLLPRI, POLLOUT, POLLERR, POLLHUP, POLLRDHUP, POLLNVAL
+from select import POLLIN, POLLPRI, POLLOUT, POLLERR, POLLNVAL
 
 
 class HttpMethods(Enum):
@@ -27,9 +27,7 @@ class PollMaskGroups:
     READ_WRITE_SIMPLE = READ_SIMPLE + WRITE_SIMPLE
 
     ERROR = [POLLERR]
-
-    HANGUPS = [POLLHUP, POLLRDHUP, POLLHUP | POLLRDHUP]
-
+    
     INVAL = [POLLNVAL]
 
     BADS = ERROR + HANGUPS + INVAL
